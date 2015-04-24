@@ -39,6 +39,10 @@ class OperandStack {
 	  void pop();
 };
 
+int OperandStack::size() const {
+	return capacity;
+}
+
 int main() {
 	return 0;
 }
