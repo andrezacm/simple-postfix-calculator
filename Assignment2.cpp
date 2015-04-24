@@ -55,7 +55,7 @@ double OperandStack::top() const {
 	return s[t];
 }
 
-void OperandStack::push(double x) {
+void OperandStack::pop() {
 	s[t] = 0;
 	t = t-1;
 }
