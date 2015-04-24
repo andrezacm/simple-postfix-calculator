@@ -56,8 +56,10 @@ double OperandStack::top() const {
 }
 
 void OperandStack::pop() {
-	s[t] = 0;
-	t = t-1;
+	if (!isEmpty()) {
+		s[t] = 0;
+		t = t-1;
+	}
 }
 
 int main() {
