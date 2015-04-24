@@ -19,24 +19,24 @@ void solvePostfix(string postfixExp);  //computes the value of arithmetic
  * Stack to store operands of postfix expression            *
  ************************************************************/
 class OperandStack {
-private:
-	double * s;  		//pointer to 1D dynamic array for storing stack elements
-	int capacity,  	//stack capacity
-		t;  					//index of the top element on stack
-	void growStack(int newCapacity);  //increases the stack if it is full
-						//must be called from the push function if the stack is full
+	private:
+		double * s;  		//pointer to 1D dynamic array for storing stack elements
+		int capacity,  	//stack capacity
+			t;  					//index of the top element on stack
+		void growStack(int newCapacity);  //increases the stack if it is full
+							//must be called from the push function if the stack is full
 
- public:
-	OperandStack(){ capacity = 0; s = NULL; t = -1; };
-	OperandStack(int capacity);
-  ~OperandStack();
-	int 	 size() 	 const;  	//return the number of elements in the stack
-  bool 	 isFull()  const;
-	bool 	 isEmpty() const;
-	double top() 		 const;  //returns the element at the top of the stack
-				 									//without removing it from the stack
-  void push(double x);
-  void pop();
+	 public:
+		OperandStack(){ capacity = 0; s = NULL; t = -1; };
+		OperandStack(int capacity);
+	  ~OperandStack();
+		int 	 size() 	 const;  	//return the number of elements in the stack
+	  bool 	 isFull()  const;
+		bool 	 isEmpty() const;
+		double top() 		 const;  //returns the element at the top of the stack
+					 									//without removing it from the stack
+	  void push(double x);
+	  void pop();
 };
 
 int main() {
