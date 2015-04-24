@@ -55,6 +55,12 @@ double OperandStack::top() const {
 	return s[t];
 }
 
+void OperandStack::push(double x) {
+	if(isFull()) growStack(capacity * 2);
+	t++;
+	s[t] = x;
+}
+
 void OperandStack::pop() {
 	if (!isEmpty()) {
 		s[t] = 0;
