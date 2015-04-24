@@ -68,6 +68,13 @@ void OperandStack::pop() {
 	}
 }
 
+void OperandStack::growStack(int newCapacity) {
+	double * newStack = new double[newCapacity];
+	for (int i=0; i==t; i++) newStack[i] = s[i];
+	delete s;
+	s = newStack;
+}
+
 int main() {
 	return 0;
 }
