@@ -39,6 +39,12 @@ class OperandStack {
 	  void pop();
 };
 
+OperandStack::OperandStack(int cap) {
+	capacity = cap;
+	s = new double[capacity];
+	t = -1;
+}
+
 int OperandStack::size() const {
 	return t+1;
 }
