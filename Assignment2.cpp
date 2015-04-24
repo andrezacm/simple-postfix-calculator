@@ -10,10 +10,15 @@
 */
 
 #include <iostream>
+#include <ctype.h>
 using namespace std;
 
 void solvePostfix(string postfixExp);  //computes the value of arithmetic
 									   									//expression given in postfix format
+
+double calculate(double number1, double number2, char op);
+																			//calculate two numbers according to
+																		 // the operator
 
 /************************************************************
  * Stack to store operands of postfix expression            *
@@ -93,3 +98,37 @@ int main() {
 }
 
 //write additional helper functions as needed
+void solvePostfix(string postfixExp) {
+	OperandStack s = OperandStack(20);
+
+	for(int i=0; i<postfixExp.length(); i++) {
+
+		if(isdigit(postfixExp[i])) {
+			s.push(postfixExp[i]);
+
+		} else {
+			double top1, top2, result;
+
+			top1 = s.top();
+			s.pop();
+
+			top2 = s.top();
+			s.pop();
+
+			result = calculate(top1, top2, postfixExp[i]);
+			s.push(result);
+		}
+	}
+}
+
+double calculate(double number1, double number2, char op) {
+	double result;
+	switch (op) {
+		case '+': result = number1 + number2; break;
+		case '-': result = number1 - number2; break;
+		case '*': result = number1 * number2; break;
+		case '/': result = number1 / number2; break;
+		default : result = 0;
+	}
+	return result;
+}
