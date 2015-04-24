@@ -48,6 +48,10 @@ bool OperandStack::isFull() const {
 	return (capacity - sizeOfStack) == 0;
 }
 
+bool OperandStack::isEmpty() const {
+	return (s == NULL);
+}
+
 int main() {
 	return 0;
 }
