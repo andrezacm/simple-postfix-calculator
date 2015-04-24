@@ -52,6 +52,10 @@ bool OperandStack::isEmpty() const {
 	return (s == NULL);
 }
 
+double OperandStack::top() const {
+	return s[t];
+}
+
 int main() {
 	return 0;
 }
