@@ -45,6 +45,13 @@ OperandStack::OperandStack(int cap) {
 	t = -1;
 }
 
+OperandStack::~OperandStack() {
+	capacity = 0;
+	t = -1;
+	delete s;
+	s = NULL;
+}
+
 int OperandStack::size() const {
 	return t+1;
 }
