@@ -55,11 +55,9 @@ double OperandStack::top() const {
 	return s[t];
 }
 
-double OperandStack::push(double x) {
-	double pushed = s[t];
-	delete s[t];
+void OperandStack::push(double x) {
+	s[t] = 0;
 	t = t-1;
-	return pushed;
 }
 
 int main() {
