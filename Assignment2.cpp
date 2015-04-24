@@ -22,7 +22,8 @@ class OperandStack {
 	private:
 		double * s;  		//pointer to 1D dynamic array for storing stack elements
 		int capacity,  	//stack capacity
-			t;  					//index of the top element on stack
+			t,						//index of the top element on stack
+			size;  				//number of elements on stack
 		void growStack(int newCapacity);  //increases the stack if it is full
 							//must be called from the push function if the stack is full
 
@@ -40,7 +41,7 @@ class OperandStack {
 };
 
 int OperandStack::size() const {
-	return capacity;
+	return size;
 }
 
 int main() {
