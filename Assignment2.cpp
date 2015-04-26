@@ -11,6 +11,8 @@
 
 #include <iostream>
 #include <ctype.h>
+#include <sstream>
+
 using namespace std;
 
 void solvePostfix(string postfixExp);  //computes the value of arithmetic
@@ -19,6 +21,7 @@ void solvePostfix(string postfixExp);  //computes the value of arithmetic
 double calculate(double number1, double number2, char op);
 																			//calculate two numbers according to
 																		 // the operator
+bool isNumber(string number); //verify if a string is a number
 
 /************************************************************
  * Stack to store operands of postfix expression            *
@@ -75,14 +78,18 @@ double OperandStack::top() const {
 
 void OperandStack::push(double x) {
 	if(isFull()) growStack(capacity * 2);
+	cout << "push: " << x << endl;
 	t++;
+	cout << " t " << t;
 	s[t] = x;
+	cout << " s[t] " << s[t] << endl;
 }
 
 void OperandStack::pop() {
 	if (!isEmpty()) {
+		cout << "pop: " << s[t] << endl;
 		s[t] = 0;
-		t = t-1;
+		t--;
 	}
 }
 
@@ -94,6 +101,10 @@ void OperandStack::growStack(int newCapacity) {
 }
 
 int main() {
+	string postfix = "8 2 3 + * 4 /";
+
+	solvePostfix(postfix);
+
 	return 0;
 }
 
@@ -101,10 +112,20 @@ int main() {
 void solvePostfix(string postfixExp) {
 	OperandStack s = OperandStack(20);
 
-	for(int i=0; i<postfixExp.length(); i++) {
+	//split string by space
+	istringstream iss(postfixExp);
 
-		if(isdigit(postfixExp[i])) {
-			s.push(postfixExp[i]);
+	while (iss) {
+		string word;
+		iss >> word;
+
+		if(iss < 1) break;
+
+		cout << endl << "iss: " << iss << endl;
+		cout << endl << "word: " << word << endl;
+
+		if (isNumber(word)) {
+			s.push(atof(word.c_str()));
 
 		} else {
 			double top1, top2, result;
@@ -115,10 +136,12 @@ void solvePostfix(string postfixExp) {
 			top2 = s.top();
 			s.pop();
 
-			result = calculate(top1, top2, postfixExp[i]);
+			result = calculate(top2, top1, word[0]);
 			s.push(result);
 		}
 	}
+
+	cout << "Result: " << s.top() << endl;
 }
 
 double calculate(double number1, double number2, char op) {
@@ -131,4 +154,12 @@ double calculate(double number1, double number2, char op) {
 		default : result = 0;
 	}
 	return result;
+}
+
+bool isNumber(string number) {
+	bool isnumber = true;
+	for(int i=0; i<number.length(); i++) {
+		if (!isdigit(number[i])) isnumber = false;
+	}
+	return isnumber;
 }
