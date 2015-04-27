@@ -69,7 +69,7 @@ bool OperandStack::isFull() const {
 }
 
 bool OperandStack::isEmpty() const {
-	return (s == NULL);
+	return (t == -1);
 }
 
 double OperandStack::top() const {
