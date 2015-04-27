@@ -12,6 +12,7 @@
 #include <iostream>
 #include <ctype.h>
 #include <sstream>
+#include <math.h>
 
 using namespace std;
 
@@ -99,7 +100,7 @@ void OperandStack::growStack(int newCapacity) {
 }
 
 int main() {
-	string postfix = "8 5 + 9 7 - /";
+	string postfix = "2 3 ^";
 
 	cout << "Result: ";
 
@@ -154,6 +155,7 @@ double calculate(double number1, double number2, char op) {
 		case '-': result = number1 - number2; break;
 		case '*': result = number1 * number2; break;
 		case '/': result = number1 / number2; break;
+		case '^': result = pow(number1, number2); break;
 		default : result = 0;
 	}
 	return result;
