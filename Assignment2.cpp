@@ -78,16 +78,12 @@ double OperandStack::top() const {
 
 void OperandStack::push(double x) {
 	if(isFull()) growStack(capacity * 2);
-	cout << "push: " << x << endl;
 	t++;
-	cout << " t " << t;
 	s[t] = x;
-	cout << " s[t] " << s[t] << endl;
 }
 
 void OperandStack::pop() {
 	if (!isEmpty()) {
-		cout << "pop: " << s[t] << endl;
 		s[t] = 0;
 		t--;
 	} else {
@@ -128,9 +124,6 @@ void solvePostfix(string postfixExp) {
 		iss >> word;
 
 		if(iss < 1) break;
-
-		cout << endl << "iss: " << iss << endl;
-		cout << endl << "word: " << word << endl;
 
 		if (isNumber(word)) {
 			s.push(atof(word.c_str()));
