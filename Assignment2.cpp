@@ -90,6 +90,8 @@ void OperandStack::pop() {
 		cout << "pop: " << s[t] << endl;
 		s[t] = 0;
 		t--;
+	} else {
+		throw "error – malformed expression";
 	}
 }
 
@@ -101,9 +103,15 @@ void OperandStack::growStack(int newCapacity) {
 }
 
 int main() {
-	string postfix = "8 2 3 + * 4 /";
+	string postfix = "8 5 + 9 7 - /";
 
-	solvePostfix(postfix);
+	cout << "Result: ";
+
+	try {
+		solvePostfix(postfix);
+	} catch (const char* msg) {
+  	cerr << msg << endl;
+  }
 
 	return 0;
 }
@@ -141,7 +149,9 @@ void solvePostfix(string postfixExp) {
 		}
 	}
 
-	cout << "Result: " << s.top() << endl;
+	if (s.size() > 1) throw "error – malformed expression";
+
+	cout << s.top() << endl;
 }
 
 double calculate(double number1, double number2, char op) {
