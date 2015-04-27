@@ -100,15 +100,23 @@ void OperandStack::growStack(int newCapacity) {
 }
 
 int main() {
-	string postfix = "2 3 ^";
 
-	cout << "Result: ";
+	while(true) {
+		cout << endl << "Enter a postfix expression: ";
 
-	try {
-		solvePostfix(postfix);
-	} catch (const char* msg) {
-  	cerr << msg << endl;
-  }
+		string postfix;
+		getline(cin, postfix);
+
+		if (postfix == "q") break;
+
+		cout << "Result: ";
+
+		try {
+			solvePostfix(postfix);
+		} catch (const char* msg) {
+	  	cerr << msg << endl;
+	  }
+	}
 
 	return 0;
 }
