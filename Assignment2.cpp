@@ -103,6 +103,12 @@ bool OperandStack::isEmpty() const {
 	return (t == -1);
 }
 
+/*
+ * OperandStack top return the element on top of the stack
+ * Inputs: nothing
+ * Return: element on top
+ *
+ */
 double OperandStack::top() const {
 	return s[t];
 }
