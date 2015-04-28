@@ -93,6 +93,12 @@ bool OperandStack::isFull() const {
 	return (capacity - size()) == 0;
 }
 
+/*
+ * OperandStack isEmpty check if the stack is empty
+ * Inputs: nothing
+ * Return: boolean
+ *
+ */
 bool OperandStack::isEmpty() const {
 	return (t == -1);
 }
