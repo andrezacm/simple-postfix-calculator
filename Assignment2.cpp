@@ -48,6 +48,12 @@ class OperandStack {
 	  void pop();
 };
 
+/*
+ * OperandStack constructor
+ * Inputs: stack capacity
+ * Return: nothing
+ *
+ */
 OperandStack::OperandStack(int cap) {
 	capacity = cap;
 	s = new double[capacity];
