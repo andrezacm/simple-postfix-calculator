@@ -215,6 +215,8 @@ void solvePostfix(string postfixExp) {
 	if (s.size() > 1) throw "error – malformed expression";
 
 	cout << s.top() << endl;
+
+	s.~OperandStack();
 }
 
 /*
