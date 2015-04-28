@@ -73,6 +73,12 @@ OperandStack::~OperandStack() {
 	s = NULL;
 }
 
+/*
+ * OperandStack size will return the size of the stack
+ * Inputs: nothing
+ * Return: stack size
+ *
+ */
 int OperandStack::size() const {
 	return t+1;
 }
