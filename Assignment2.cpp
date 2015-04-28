@@ -113,6 +113,12 @@ double OperandStack::top() const {
 	return s[t];
 }
 
+/*
+ * OperandStack push will insert a new element on top of the stack
+ * Inputs: element
+ * Return: nothing
+ *
+ */
 void OperandStack::push(double x) {
 	if(isFull()) growStack(capacity * 2);
 	t++;
