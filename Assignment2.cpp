@@ -140,6 +140,12 @@ void OperandStack::pop() {
 	}
 }
 
+/*
+ * OperandStack growStack will increase the size of the stack
+ * Inputs: the new size
+ * Return: nothing
+ *
+ */
 void OperandStack::growStack(int newCapacity) {
 	double * newStack = new double[newCapacity];
 	for (int i=0; i==t; i++) newStack[i] = s[i];
