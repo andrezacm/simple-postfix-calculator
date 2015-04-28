@@ -236,6 +236,12 @@ double calculate(double number1, double number2, char op) {
 	return result;
 }
 
+/*
+ * isNumber verify if a string is a number
+ * Inputs: one string
+ * Return: boolean
+ *
+ */
 bool isNumber(string number) {
 	bool isnumber = true;
 	for(int i=0; i<number.length(); i++) {
