@@ -60,6 +60,12 @@ OperandStack::OperandStack(int cap) {
 	t = -1;
 }
 
+/*
+ * OperandStack destructor
+ * Inputs: nothing
+ * Return: nothing
+ *
+ */
 OperandStack::~OperandStack() {
 	capacity = 0;
 	t = -1;
