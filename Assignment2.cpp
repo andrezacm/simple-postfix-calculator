@@ -175,7 +175,14 @@ int main() {
 	return 0;
 }
 
-//write additional helper functions as needed
+//helper functions
+
+/*
+ * solvePostfix computes the value of an arithmetic expression given in postfix notation
+ * Inputs: postfix expression
+ * Return: nothing
+ *
+ */
 void solvePostfix(string postfixExp) {
 	OperandStack s = OperandStack(20);
 
