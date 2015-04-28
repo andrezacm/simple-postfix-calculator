@@ -217,6 +217,12 @@ void solvePostfix(string postfixExp) {
 	cout << s.top() << endl;
 }
 
+/*
+ * calculate solves the equation
+ * Inputs: two numbers and one operator
+ * Return: the result
+ *
+ */
 double calculate(double number1, double number2, char op) {
 	double result;
 	switch (op) {
