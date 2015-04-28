@@ -148,7 +148,7 @@ void OperandStack::pop() {
  */
 void OperandStack::growStack(int newCapacity) {
 	double * newStack = new double[newCapacity];
-	for (int i=0; i==t; i++) newStack[i] = s[i];
+	for (int i=0; i<(t+1); i++) newStack[i] = s[i];
 	delete s;
 	s = newStack;
 }
@@ -184,7 +184,7 @@ int main() {
  *
  */
 void solvePostfix(string postfixExp) {
-	OperandStack s = OperandStack(20);
+	OperandStack s = OperandStack(2);
 
 	//split string by space
 	istringstream iss(postfixExp);
