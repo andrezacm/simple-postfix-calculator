@@ -83,6 +83,12 @@ int OperandStack::size() const {
 	return t+1;
 }
 
+/*
+ * OperandStack isFull check if the stack reached the capacity
+ * Inputs: nothing
+ * Return: boolean
+ *
+ */
 bool OperandStack::isFull() const {
 	return (capacity - size()) == 0;
 }
