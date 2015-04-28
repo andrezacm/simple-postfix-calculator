@@ -125,6 +125,12 @@ void OperandStack::push(double x) {
 	s[t] = x;
 }
 
+/*
+ * OperandStack pop will remove an element on top of the stack
+ * Inputs: nothing
+ * Return: element
+ *
+ */
 void OperandStack::pop() {
 	if (!isEmpty()) {
 		s[t] = 0;
